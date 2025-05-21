@@ -86,7 +86,7 @@ router.get('/:id', (req, res) => {
  */
 router.post('/', (req, res) => {
   const { name, status } = req.body;
-  db.query('INSERT INTO companies (name, status) VALUES (?, ?)', [name, status], (err, result) => {
+  db.query('INSERT INTO companies (company_name, status) VALUES (?, ?)', [name, status], (err, result) => {
     if (err) return res.status(500).json(err);
     res.status(201).json({ id: result.insertId });
   });
@@ -124,7 +124,7 @@ router.post('/', (req, res) => {
  */
 router.put('/:id', (req, res) => {
   const { name, status } = req.body;
-  db.query('UPDATE companies SET name = ?, status = ? WHERE id = ?', [name, status, req.params.id], (err) => {
+  db.query('UPDATE companies SET company_name = ?, status = ? WHERE id = ?', [name, status, req.params.id], (err) => {
     if (err) return res.status(500).json(err);
     res.json({ message: 'Company updated successfully' });
   });

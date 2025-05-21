@@ -35,7 +35,7 @@ const db = require('../db');
  *         description: Server error
  */
 router.get('/companies', (req, res) => {
-  db.query('SELECT id, name FROM companies WHERE status = "Active"', (err, results) => {
+  db.query('SELECT id, company_name FROM companies WHERE status = "Active"', (err, results) => {
     if (err) return res.status(500).json(err);
     res.json(results);
   });
