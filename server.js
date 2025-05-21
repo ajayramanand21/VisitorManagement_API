@@ -42,9 +42,9 @@ const openRoutes = require('./routes/dropdown');
 const designationRoutes = require('./routes/designation');
 const employeeRoutes = require('./routes/employees');
 const uploadRoutes = require('./routes/upload'); 
+const visitorRoutes = require('./routes/visitors')
 
-
-
+app.use('/api/visitors', visitorRoutes);
 app.use('/api/employees', employeeRoutes);
 app.use('/api/designations', designationRoutes);
 app.use('/api/open', openRoutes);
